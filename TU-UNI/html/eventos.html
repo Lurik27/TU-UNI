@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TONI · Inicio</title>
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/inicio.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img src="/img/logo.png" alt="TONI" class="logo-img">
+    </div>
+
+    <!-- Contenedor de Perfil Dinámico -->
+    <a class="sidebar-profile" href="perfil.html">
+      <img id="userAvatar" src="" alt="Avatar" class="avatar-sm">
+      <div class="sidebar-profile-info">
+        <strong id="userNombre">Cargando...</strong>
+        <small id="userCorreo">cargando@upsin.edu.mx</small>
+      </div>
+    </a>
+
+    <!-- Estadísticas Dinámicas -->
+    <div class="sidebar-stats">
+      <div><strong id="statSeguidores">0</strong><span>Seguidores</span></div>
+      <div><strong id="statSeguidos">0</strong><span>Seguidos</span></div>
+      <div><strong id="statPosts">0</strong><span>Posts</span></div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="nav-item" href="/html/inicio.html">
+        <svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></svg>
+        Inicio
+      </a>
+      <a class="nav-item" href="/html/mercado.html">
+        <svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        Mercado
+      </a>
+      <a class="nav-item" href="/html/foros.html">
+        <svg viewBox="0 0 24 24"><circle cx="8" cy="9" r="3"/><circle cx="17" cy="9" r="3"/><path d="M2 20c0-3 2.5-5 6-5s6 2 6 5"/><path d="M11 20c0-3 2.5-5 6-5s5 2 5 5"/></svg>
+        Foros
+      </a>
+      <a class="nav-item eventos active" href="/html/eventos.html">
+        <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 10h16"/><path d="M8 3v4"/><path d="M16 3v4"/></svg>
+        Eventos
+      </a>
+      
+      <!-- Botón de cerrar sesión integrado con la navegación -->
+      <button class="sidebar-logout" id="btnLogout" title="Cerrar sesión" style="margin-top: 10px;">
+        <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>
+      </button>
+    </nav>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="main">
+
+    <header class="topbar">
+      <div class="search-box">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" placeholder="Buscar publicaciones, temas, personas...">
+      </div>
+      <button class="btn-publicar" id="btnPublicar" onclick="abrirModalPublicar()">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 5v14M5 12h14"/>
+        </svg>
+        Publicar
+      </button>
+      
+      <!-- Icono de Notificaciones -->
+      <button class="icon-btn" id="btnNotif" title="Notificaciones">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+      </button>
+
+      <!-- Icono de Configuración -->
+      <button class="icon-btn" id="btnConfig" title="Ajustes">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      </button>
+    </header>
+
+
+    <!-- Cabecera de Página (Título + Filtro de Ordenamiento) -->
+    <div class="page-head" style="display: flex !important; align-items: center !important; justify-content: space-between !important; margin: 24px 0 !important; width: 100% !important;">
+      <h2 style="margin: 0 !important; font-size: 28px !important; font-weight: 800 !important; color: #12203a !important;">Inicio</h2>
+      
+      <div class="filter-container" style="display: flex !important; align-items: center !important; gap: 8px !important;">
+        <span style="font-size: 13px !important; font-weight: 600 !important; color: #666 !important;">Ordenar por:</span>
+        <select id="filtroPublicaciones" style="padding: 8px 14px !important; font-size: 13px !important; font-weight: 600 !important; color: #12203a !important; background: #ffffff !important; border: 1px solid #dcdfe6 !important; border-radius: 8px !important; cursor: pointer !important; outline: none !important; box-shadow: 0 2px 6px rgba(0,0,0,0.04) !important;">
+          <option value="RECIENTES">Más recientes</option>
+          <option value="ANTIGUAS">Más antiguas</option>
+          <option value="MIS_POSTS">Mis publicaciones</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Feed Principal Dinámico -->
+    <div class="grid grid-3 posts-grid" id="inicioGrid" data-seccion="EVENTOS"></div>
+
+    <!-- Botón Flotante Chat -->
+    <button class="chat-fab" id="btnChat">
+      <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    </button>
+
+  </main>
+</div>
+
+<!-- =========================================================
+     MODAL REUTILIZABLE PARA NOTIFICACIONES Y CONFIGURACIÓN
+     ========================================================= -->
+<div id="modalOverlay" class="modal-overlay" style="display: none; position: fixed !important; inset: 0 !important; background: rgba(0, 0, 0, 0.7) !important; backdrop-filter: blur(4px) !important; z-index: 99999 !important; align-items: center !important; justify-content: center !important; padding: 20px !important;">
+  <div class="modal-content" style="background: #ffffff !important; width: 100% !important; max-width: 450px !important; height: auto !important; max-height: 80vh !important; overflow-y: auto !important; padding: 24px !important; border-radius: 14px !important; box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important; position: relative !important; display: flex !important; flex-direction: column !important; box-sizing: border-box !important;">
+    <button id="modalClose" style="position: absolute !important; top: 14px !important; right: 18px !important; background: none !important; border: none !important; font-size: 28px !important; cursor: pointer !important; color: #888 !important; line-height: 1 !important; z-index: 10;">&times;</button>
+    <div id="modalContent" style="width: 100% !important; box-sizing: border-box !important;"></div>
+  </div>
+</div>
+
+<!-- =========================================================
+     MODAL PARA CREAR PUBLICACIÓN (Venta/Aviso/Evento/Foro)
+     ========================================================= -->
+<div id="modalPublicar" class="modal-overlay" style="display: none; position: fixed !important; inset: 0 !important; background: rgba(0, 0, 0, 0.7) !important; backdrop-filter: blur(4px) !important; z-index: 99999 !important; align-items: center !important; justify-content: center !important; padding: 20px !important;">
+  <div class="modal-content" style="background: #ffffff !important; width: 100% !important; max-width: 480px !important; height: auto !important; max-height: 85vh !important; overflow-y: auto !important; padding: 24px !important; border-radius: 14px !important; box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important; display: flex !important; flex-direction: column !important; box-sizing: border-box !important;">
+    
+    <div class="modal-header" style="display: flex !important; align-items: center !important; justify-content: space-between !important; margin-bottom: 20px !important; width: 100% !important;">
+      <h2 style="font-size: 22px !important; font-weight: 800 !important; color: #12203a !important; margin: 0 !important;">Nueva Publicación</h2>
+      <button class="btn-close" onclick="cerrarModalPublicar()" style="background: none !important; border: none !important; font-size: 30px !important; cursor: pointer !important; color: #666 !important; line-height: 1 !important;">&times;</button>
+    </div>
+    
+    <!-- Formulario -->
+    <form id="formPublicar" style="display: flex !important; flex-direction: column !important; gap: 16px !important; width: 100% !important; margin: 0 !important;">
+      
+      <!-- Título -->
+      <div class="form-group" style="display: flex !important; flex-direction: column !important; gap: 6px !important; width: 100% !important;">
+        <label for="pubTitulo" style="font-size: 13px !important; font-weight: 600 !important; color: #333 !important;">Título de la Publicación</label>
+        <input type="text" id="pubTitulo" class="form-control" placeholder="Ej. ¡Nueva promo de Hamburguesas!" required style="width: 100% !important; box-sizing: border-box !important; padding: 10px !important; border: 1px solid #ccc !important; border-radius: 6px !important;">
+      </div>
+
+      <!-- Tipo de Publicación -->
+      <div class="form-group" style="display: flex !important; flex-direction: column !important; gap: 6px !important; width: 100% !important;">
+        <label for="pubTipo" style="font-size: 13px !important; font-weight: 600 !important; color: #333 !important;">Tipo de Publicación</label>
+        <select id="pubTipo" class="form-control" required style="width: 100% !important; box-sizing: border-box !important; padding: 10px !important; border: 1px solid #ccc !important; border-radius: 6px !important; background: #fff !important;">
+          <option value="" disabled selected>-- Selecciona el tipo --</option>
+          <option value="VENTAS">Venta</option>
+          <option value="AVISOS">Aviso</option>
+          <option value="EVENTOS">Evento</option>
+          <option value="FOROS">Foro</option>
+        </select>
+      </div>
+
+      <!-- CAMPOS DINÁMICOS PARA VENTAS -->
+      <div id="camposVenta" style="display: none; flex-direction: column !important; gap: 6px !important; width: 100% !important;">
+        <label for="extraPrecio" style="font-size: 13px !important; font-weight: 600 !important; color: #333 !important;">Precio ($ MXN)</label>
+        <input type="number" id="extraPrecio" class="form-control" placeholder="Ej. 150" style="width: 100% !important; box-sizing: border-box !important; padding: 10px !important; border: 1px solid #ccc !important; border-radius: 6px !important; margin-bottom: 8px;">
+
+        <label for="extraCategoria" style="font-size: 13px !important; font-weight: 600 !important; color: #333 !important;">Tipo de producto</label>
+        <select id="extraCategoria" class="form-control" style="width: 100% !important; box-sizing: border-box !important; padding: 10px !important; border: 1px solid #ccc !important; border-radius: 6px !important; background: #fff !important;">
+          <option value="COMIDA">Comida y bebidas</option>
+          <option value="ROPA">Ropa y accesorios</option>
+          <option value="TECNOLOGIA">Tecnología</option>
+          <option value="SERVICIOS">Servicios</option>
+          <option value="PAPELERIA">Papelería y útiles</option>
+          <option value="HOGAR">Hogar</option>
+          <option value="OTROS" selected>Otros</option>
+        </select>
+      </div>
+
+      <!-- CAMPOS DINÁMICOS PARA EVENTOS -->
+      <div id="camposEvento" style="display: none; flex-direction: column !important; gap: 6px !important; width: 100% !important;">
+        <label for="extraLugar" style="font-size: 13px !important; font-weight: 600 !important; color: #333 !important;">Lugar del Evento</label>
+        <input type="text" id="extraLugar" class="form-control" placeholder="Ej. Auditorio Principal" style="width: 100% !important; box-sizing: border-box !important; padding: 10px !important; border: 1px solid #ccc !important; border-radius: 6px !important; margin-bottom: 8px;">
+        
+        <label for="extraHora" style="font-size: 13px !important; font-weight: 600 !important; color: #333 !important;">Fecha y Hora</label>
+        <input type="datetime-local" id="extraHora" class="form-control" style="width: 100% !important; box-sizing: border-box !important; padding: 10px !important; border: 1px solid #ccc !important; border-radius: 6px !important;">
+      </div>
+
+      <!-- Imagen desde la PC -->
+      <div class="form-group" style="display: flex !important; flex-direction: column !important; gap: 6px !important; width: 100% !important;">
+        <label for="pubImagenFile" style="font-size: 13px !important; font-weight: 600 !important; color: #333 !important; cursor: pointer !important;">Seleccionar Imagen (Desde PC)</label>
+        <input type="file" id="pubImagenFile" class="form-control" accept="image/*" style="width: 100% !important; box-sizing: border-box !important; padding: 6px !important; border: 1px solid #ccc !important; border-radius: 6px !important;">
+        <img id="vistaPrevia" style="max-height: 100px; width: auto; object-fit: cover; margin-top: 8px; display: none; border-radius: 6px; border: 1px solid #ddd;">
+      </div>
+
+      <!-- Descripción -->
+      <div class="form-group" style="display: flex !important; flex-direction: column !important; gap: 6px !important; width: 100% !important;">
+        <label for="pubDescripcion" style="font-size: 13px !important; font-weight: 600 !important; color: #333 !important;">Descripción</label>
+        <textarea id="pubDescripcion" class="form-control" rows="3" placeholder="Escribe el contenido aquí..." required style="width: 100% !important; box-sizing: border-box !important; padding: 10px !important; border: 1px solid #ccc !important; border-radius: 6px !important; resize: none !important;"></textarea>
+      </div>
+
+      <!-- Botón de Envío -->
+      <button type="submit" class="btn-submit-modal" style="background: #3b5998 !important; color: #fff !important; border: none !important; padding: 12px !important; font-size: 14px !important; font-weight: 700 !important; border-radius: 6px !important; cursor: pointer !important; width: 100% !important; margin-top: 8px !important;">Crear Publicación</button>
+    </form>
+  </div>
+</div>
+
+<!-- =========================================================
+     SCRIPTS DE CONTROL
+     ========================================================= -->
+<script src="/js/inicio.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TONI - Iniciar Sesión</title>
+<!-- Asegúrate de enlazar aquí tu CSS original del Login -->
+<link rel="stylesheet" href="/css/index.css"> 
+</head>
+<body>
+
+<div class="background-container">
+
+    <div class="logo-section">
+        <img class="img-logo" src="/img/logo.png" alt="Logo">
+    </div>
+
+    <div class="login-card">
+        <!-- Quitamos action y method para controlarlo 100% con JS -->
+        <form id="formLogin">
+
+            <div class="input-group">
+                <label for="identificador">Usuario o Correo electrónico</label>
+                <!-- Este input sirve tanto para el nombre de usuario como para el @upsin.edu.mx -->
+                <input type="text" id="identificador" name="identificador" placeholder="Pepito123 o ejemplo@upsin.edu.mx">
+            </div>
+
+            <div class="input-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" placeholder="············">
+            </div>
+
+            <!-- Cambiado a type="button" e id="btnIngresar" -->
+            <button type="button" id="btnIngresar" class="btn btn-filled">Iniciar sesión</button>
+            <a href="/html/Registro.html" class="btn btn-outline">Crear cuenta</a>
+
+        </form>
+    </div>
+
+</div>
+
+<!-- Contenedor flotante para los mensajes emergentes (Toasts) -->
+<div id="mensaje-alerta"></div>
+    <!-- 4. CORRECCIÓN: Cambiamos <link> por <script type="module"> -->
+    <script type="module" src="/Js/inicioSesion.js"></script>
+</body>
+</html>

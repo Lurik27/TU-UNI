@@ -1,0 +1,307 @@
+/* =========================================================
+   COMMON.CSS
+   Reglas 100% idénticas en las 5 pantallas: reset, sidebar,
+   barra superior y ventana modal. Cada página además carga
+   su propio archivo CSS (inicio.css, perfil.css, etc.) con
+   los estilos que le son exclusivos.
+   ========================================================= */
+
+:root{
+  --blue-1:#0d2f63;
+  --blue-2:#1c5aa8;
+  --blue-3:#1f6fd6;
+  --bg:#eef1f5;
+  --card:#ffffff;
+  --text:#1c2b3a;
+  --muted:#6b7785;
+  --border:#e3e7ec;
+  --radius:12px;
+  --radius-sm:8px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:'Segoe UI', Roboto, Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x: hidden;
+}
+svg{
+  width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;
+}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+a{text-decoration:none;color:inherit;}
+img{display:block;object-fit:cover;}
+
+.app{display:flex;min-height:100vh;}
+
+/* ===================== SIDEBAR ===================== */
+.sidebar{
+  width:230px;
+  min-width:230px;
+  background:linear-gradient(180deg,var(--blue-1) 0%,var(--blue-2) 100%);
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  padding:18px 14px;
+  gap:16px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background-color: #ffffff; /* Reemplaza por el color exacto de tu menú */
+  box-sizing: border-box;
+  overflow-y: auto;          /* Permite scroll si las opciones no caben en la pantalla */
+}
+.sidebar-logo{display:flex;align-items:center;gap:8px;padding:4px 6px 10px;}
+.logo-img{width:100%;height:100%;border-radius:8px;}
+.logo-text{font-size:22px;font-weight:800;letter-spacing:1px;}
+.logo-eyes{font-size:16px;letter-spacing:-2px;}
+
+.sidebar-profile{
+  display:flex;align-items:center;gap:10px;
+  border-radius:var(--radius-sm);
+  padding:10px;
+  text-align:left;
+  transition:background .15s;
+}
+.sidebar-profile-active{
+  display:flex;align-items:center;gap:10px;
+  background:#ffffffa8;
+  border-radius:var(--radius-sm);
+  padding:10px;
+  text-align:left;
+  transition:background .15s;
+  color:var(--blue-1);
+}
+
+
+.sidebar-profile:hover{background:rgba(255,255,255,.16);}
+.avatar-sm{width:40px;height:40px;border-radius:50%;background:#fff;}
+.sidebar-profile-info{display:flex;flex-direction:column;overflow:hidden;}
+.sidebar-profile-info strong{font-size:13px;}
+.sidebar-profile-info small{font-size:10px;opacity:.75;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+
+.sidebar-stats{
+  display:flex;justify-content:space-between;
+  border-radius:var(--radius-sm);
+  padding:10px 6px;
+}
+.sidebar-stats div{display:flex;flex-direction:column;align-items:center;flex:1;}
+.sidebar-stats strong{font-size:15px;}
+.sidebar-stats span{font-size:10px;opacity:.75;}
+
+.sidebar-nav{display:flex;flex-direction:column;gap:4px;margin-top:6px;}
+.nav-item{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 12px;border-radius:var(--radius-sm);
+  font-size:14px;font-weight:500;color:rgba(255,255,255,.85);
+  transition:background .15s;
+}
+.nav-item svg{stroke:currentColor;}
+.nav-item:hover{background:rgba(255,255,255,.08);}
+.nav-item.active{background:#fff;color:var(--blue-1);font-weight:700;}
+
+.sidebar-logout{
+  margin-top:auto;
+  width:36px;height:36px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:50%;
+  color:#fff;background:rgba(255,255,255,.08);
+}
+.sidebar-logout:hover{background:rgba(255,255,255,.18);}
+
+/* ===================== MAIN / TOPBAR ===================== */
+.main{flex:1;display:flex;flex-direction:column;padding:20px 26px;gap:18px;min-width:0;}
+
+.topbar{display:flex;align-items:center;gap:12px;}
+.topbar.topbar-perfil{justify-content:flex-end;}
+.spacer{flex:1;}
+
+.search-box{
+  flex:1;display:flex;align-items:center;gap:8px;
+  background:#fff;border:1px solid var(--border);
+  border-radius:999px;padding:10px 16px;color:var(--muted);
+}
+.search-box svg{width:16px;height:16px;}
+.search-box input{border:none;outline:none;flex:1;font-size:14px;background:transparent;}
+
+.btn-publicar{
+  display:flex;align-items:center;gap:6px;
+  background:var(--blue-1);color:#fff;
+  padding:10px 18px;border-radius:999px;font-size:14px;font-weight:600;
+  white-space:nowrap;
+}
+.btn-publicar:hover{background:var(--blue-2);}
+.btn-publicar svg{width:16px;height:16px;}
+
+.icon-btn{
+  width:40px;height:40px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:#fff;border:1px solid var(--border);color:var(--text);
+}
+.icon-btn:hover{background:#f2f4f7;}
+
+.page-head{display:flex;align-items:center;gap:14px;}
+.page-head h2{font-size:20px;font-weight:700;color:var(--blue-1);}
+.page-head .chips{display:flex;gap:8px;}
+.btn-filtro{
+  margin-left:auto;
+  display:flex;align-items:center;gap:6px;
+  background:#fff;border:1px solid var(--border);
+  padding:8px 14px;border-radius:999px;font-size:13px;color:var(--text);
+}
+.btn-filtro svg{width:14px;height:14px;}
+
+.chip{
+  display:flex;align-items:center;gap:6px;
+  background:#e7f0ff;color:var(--blue-2);
+  font-size:12px;font-weight:600;
+  padding:6px 10px;border-radius:999px;
+}
+.chip-x{font-size:14px;line-height:1;color:var(--blue-2);}
+
+.grid{display:grid;gap:10px;height: auto;width: auto;}
+.grid-2{grid-template-columns:repeat(2,1fr);}
+.grid-3{grid-template-columns:repeat(4,1fr);}
+
+
+
+/* ===================== CHAT FLOTANTE ===================== */
+.chat-fab{
+  position:fixed;bottom:26px;right:26px;
+  width:50px;height:50px;border-radius:50%;
+  background:var(--blue-1);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 16px rgba(13,47,99,.35);
+  z-index:5;
+}
+.chat-fab:hover{background:var(--blue-2);}
+
+/* ===================== MODAL ===================== */
+
+
+.notif-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);font-size:13px;}
+.notif-item:last-child{border-bottom:none;}
+.settings-item{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);font-size:13px;}
+.settings-item:last-child{border-bottom:none;}
+
+/* selector de tipo de publicación (iconos) */
+.type-selector{display:flex;gap:10px;margin-bottom:14px;}
+.type-option{
+  flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;
+  padding:12px 6px;border:1px solid var(--border);border-radius:var(--radius-sm);
+  font-size:11px;font-weight:600;color:var(--muted);
+  transition:border-color .15s, background .15s, color .15s;
+}
+.type-option svg{width:20px;height:20px;}
+.type-option:hover{background:#f2f4f7;}
+.type-option.active{
+  border-color:var(--blue-2);
+  background:#e7f0ff;
+  color:var(--blue-1);
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width:760px){
+  .app{flex-direction:column;}
+  .sidebar{width:100%;flex-direction:row;align-items:center;overflow-x:auto;}
+  .sidebar-nav{flex-direction:row;}
+  .sidebar-stats{display:none;}
+  .sidebar-profile-info{display:none;}
+  .sidebar-logout{margin-top:0;}
+}
+
+textarea {
+        width: 100%;
+        height: 80px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: none;
+        box-sizing: border-box;
+    }
+    select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: white;
+    }
+    
+/* Fondo oscuro y borroso que cubre toda la pantalla */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente oscuro */
+    backdrop-filter: blur(8px); /* ¡Aquí ocurre la magia del borroso! */
+    -webkit-backdrop-filter: blur(8px); /* Soporte para Safari */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Cuando el modal esté activo */
+.modal-overlay.activo {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Caja del contenido en el centro */
+.modal-contenido {
+    background: #ffffff;
+    width: 90%;
+    max-width: 700px; /* Tamaño máximo en horizontal */
+    max-height: 90vh; /* Para que no se salga de pantallas pequeñas */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow-y: auto; /* Scroll interno si la publicación es muy larga */
+    transform: scale(0.85);
+    transition: transform 0.3s ease;
+    padding: 24px;
+}
+
+/* Animación de agrandado al abrir */
+.modal-overlay.activo .modal-contenido {
+    transform: scale(1);
+}
+
+/* Botón de cerrar (X) */
+.btn-cerrar-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: #f1f2f6;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.2s;
+    z-index: 10;
+}
+
+.btn-cerrar-modal:hover {
+    background: #e4e7eb;
+    transform: scale(1.1);
+}
+.modal-overlay {
+  display: none;
+}
+.modal-overlay.activo {
+  display: flex;
+}

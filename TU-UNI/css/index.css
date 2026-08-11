@@ -1,0 +1,205 @@
+/* Reseteo básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Hace que todo se vea aproximadamente al 80% */
+html {
+    font-size: 80%;
+}
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    background-color: #1F3A52;
+    overflow: hidden;
+}
+
+/* Fondo */
+
+.background-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-image: url('/img/2.jpeg');
+    background-size: 102% auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #1F3A52;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    position: relative;
+}
+.logo-section{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+
+    width: 100%;
+    text-align: center;
+    
+}
+
+.img-logo{
+    width: 300px;
+    max-width: 90vw; /* Para que no se salga de la pantalla */
+    height: auto;
+}
+.background-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:rgba(0, 0, 0, 0.31);
+    z-index: 0;
+}
+
+.logo-section,
+.login-card {
+    position: relative;
+    z-index: 1;
+}
+
+.logo-section {
+    text-align: center;
+    margin-bottom: 1.8rem;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+
+    padding: 2rem 1.8rem;
+
+    width: 80%;
+    max-width: 340px;
+
+    box-shadow: 0 8px 32px rgba(0, 0, 0, .2);
+}
+
+.form-title {
+    color: white;
+    text-align: center;
+    font-size: 1.4rem;
+    margin-bottom: 1.3rem;
+    font-weight: 600;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: .9rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+}
+
+label {
+    color: #e0e0e0;
+    font-size: .8rem;
+    margin-left: 4px;
+}
+
+input {
+    width: 100%;
+    padding: 10px 13px;
+    border-radius: 7px;
+    border: none;
+    background-color: rgba(68,115,158,.7);
+    color: white;
+    font-size: .85rem;
+    outline: none;
+    transition: .3s;
+}
+
+input::placeholder {
+    color: rgba(255,255,255,.6);
+}
+
+input:focus {
+    background-color: rgba(68,115,158,1);
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 7px;
+    font-size: .9rem;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: .3s;
+    margin-top: .4rem;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,.4);
+    color: white;
+}
+
+.btn-outline:hover {
+    background: rgba(255,255,255,.1);
+}
+
+.btn-filled {
+    background-color: #A4C6E2;
+    border: none;
+    color: #1F3A52;
+    font-weight: 600;
+    margin-top: 0;
+}
+
+.btn-filled:hover {
+    background-color: #8cb5d6;
+}
+
+/* Link */
+
+.forgot-password {
+    color: rgba(255,255,255,.6);
+    text-align: center;
+    font-size: .75rem;
+    text-decoration: none;
+    margin-top: .5rem;
+    transition: .3s;
+}
+
+.forgot-password:hover {
+    color: white;
+}
+
+/* Responsive */
+
+@media (max-width:768px){
+
+    html{
+        font-size:90%;
+    }
+
+    .login-card{
+        width:90%;
+        max-width:360px;
+    }
+
+    .logo-section img{
+        width:160px;
+    }
+
+}

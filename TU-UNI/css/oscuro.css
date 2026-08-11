@@ -1,0 +1,196 @@
+/* =========================================================
+   MODO OSCURO — solo sobreescribe colores, no layout
+   Se activa agregando la clase "dark-mode" al <body>
+   ========================================================= */
+
+body.dark-mode {
+    background-color: #0f1420;
+    color: #e4e6eb;
+}
+
+/* ---------- SIDEBAR ---------- */
+body.dark-mode .sidebar {
+    background-color: #161c2c;
+    border-color: #232a3d;
+}
+
+body.dark-mode .sidebar-profile strong,
+body.dark-mode #userNombre {
+    color: #e4e6eb;
+}
+
+body.dark-mode .sidebar-profile small,
+body.dark-mode #userCorreo {
+    color: #9aa3b5;
+}
+
+body.dark-mode .sidebar-stats strong {
+    color: #e4e6eb;
+}
+
+body.dark-mode .sidebar-stats span {
+    color: #9aa3b5;
+}
+
+body.dark-mode .nav-item {
+    color: #c3c9d6;
+}
+
+body.dark-mode .nav-item:hover,
+body.dark-mode .nav-item.active {
+    background-color: #232a3d;
+    color: #ffffff;
+}
+
+body.dark-mode .sidebar-logout {
+    color: #c3c9d6;
+}
+
+/* ---------- TOPBAR ---------- */
+body.dark-mode .topbar {
+    background-color: #161c2c;
+    border-color: #232a3d;
+}
+
+body.dark-mode .search-box {
+    background-color: #232a3d;
+}
+
+body.dark-mode .search-box input {
+    background-color: transparent;
+    color: #e4e6eb;
+}
+
+body.dark-mode .search-box input::placeholder {
+    color: #8891a3;
+}
+
+body.dark-mode .icon-btn {
+    background-color: #232a3d;
+    color: #e4e6eb;
+}
+
+body.dark-mode .icon-btn:hover {
+    background-color: #2c3448;
+}
+
+/* ---------- ENCABEZADO DE PÁGINA Y FILTRO ---------- */
+body.dark-mode .page-head h2 {
+    color: #e4e6eb !important;
+}
+
+body.dark-mode .filter-container span {
+    color: #9aa3b5 !important;
+}
+
+body.dark-mode #filtroPublicaciones {
+    background: #232a3d !important;
+    color: #e4e6eb !important;
+    border-color: #333c54 !important;
+}
+
+/* ---------- CARRUSEL ---------- */
+body.dark-mode .slide-text h1,
+body.dark-mode .slide-text span {
+    color: #ffffff;
+}
+
+/* ---------- TARJETAS DE PUBLICACIÓN ---------- */
+body.dark-mode .card {
+    background-color: #161c2c;
+    border-color: #232a3d;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .card-title {
+    color: #e4e6eb;
+}
+
+body.dark-mode .card-desc {
+    color: #b0b6c4;
+}
+
+body.dark-mode .card-img-placeholder {
+    background-color: #232a3d;
+}
+
+body.dark-mode .contador-mini {
+    color: #9aa3b5;
+}
+
+body.dark-mode .btn-mini-accion {
+    color: #c3c9d6;
+}
+
+body.dark-mode .btn-mini-accion.activo-like {
+    color: #e0245e;
+}
+
+body.dark-mode .btn-mini-accion.activo-favorito {
+    color: #fab818;
+}
+
+/* ---------- BOTÓN FLOTANTE DE CHAT ---------- */
+body.dark-mode .chat-fab {
+    background-color: #1da1f2;
+    color: #ffffff;
+}
+
+/* ---------- MODALES (Publicar, Comentarios, Notificaciones, Ajustes) ---------- */
+body.dark-mode .modal-content,
+body.dark-mode #modalOverlay > div,
+body.dark-mode .modal-contenido {
+    background-color: #161c2c !important;
+    color: #e4e6eb;
+}
+
+body.dark-mode .modal-header h2,
+body.dark-mode #modalContent h3 {
+    color: #e4e6eb !important;
+}
+
+body.dark-mode .form-control,
+body.dark-mode input[type="text"],
+body.dark-mode input[type="number"],
+body.dark-mode input[type="datetime-local"],
+body.dark-mode textarea,
+body.dark-mode select {
+    background-color: #232a3d !important;
+    color: #e4e6eb !important;
+    border-color: #333c54 !important;
+}
+
+body.dark-mode .form-control::placeholder,
+body.dark-mode textarea::placeholder {
+    color: #8891a3;
+}
+
+body.dark-mode label {
+    color: #c3c9d6 !important;
+}
+
+body.dark-mode .type-option {
+    background-color: #232a3d;
+    color: #c3c9d6;
+    border-color: #333c54;
+}
+
+body.dark-mode .type-option.active,
+body.dark-mode .type-option[data-active="true"] {
+    background-color: #1da1f2;
+    color: #ffffff;
+}
+
+body.dark-mode .btn-close {
+    color: #c3c9d6 !important;
+}
+
+/* ---------- NOTIFICACIONES (tarjetas dentro del modal) ---------- */
+body.dark-mode #modalContent [style*="background: #f8f9fa"],
+body.dark-mode #modalContent [style*="background:#f8f9fa"] {
+    background-color: #232a3d !important;
+}
+
+body.dark-mode #modalContent p {
+    color: #c3c9d6;
+}

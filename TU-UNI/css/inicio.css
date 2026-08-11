@@ -1,0 +1,402 @@
+/* =========================================================
+   INICIO.CSS
+   Estilos exclusivos de la pantalla Inicio:
+   - Configuración General
+   - Carrusel de Novedades
+   - Tarjetas de Publicación (Feed)
+   - Ventana Emergente (Modal)
+   ========================================================= */
+
+/* ---------- Configuración General ---------- */
+body {
+    background-color: #eeeeee;
+}
+
+/* =========================================================
+   CARRUSEL
+   ========================================================= */
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+/* ---------- Barra superior del Carrusel ---------- */
+.carousel-topbar {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.carousel-topbar .search-box {
+    background: rgba(255, 255, 255, .92);
+    backdrop-filter: blur(4px);
+}
+
+.carousel-topbar .btn-publicar {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .25);
+}
+
+.carousel-topbar .icon-btn {
+    background: rgba(255, 255, 255, .92);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .2);
+}
+
+/* ---------- Slides (Diapositivas) ---------- */
+.carousel-track {
+    display: flex;
+    height: 100%;
+    transition: transform .5s ease;
+}
+
+.slide {
+    position: relative;
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    background-color: #12203a;
+    background-size: cover;
+    background-position: center;
+}
+
+.slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, .75) 0%,
+        rgba(0, 0, 0, .25) 55%,
+        rgba(0, 0, 0, 0) 100%
+    );
+}
+
+.slide-text {
+    position: relative;
+    z-index: 1;
+    padding: 26px 30px;
+    color: #fff;
+}
+
+.slide-text span {
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.slide-text h1 {
+    margin-top: 2px;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+/* ---------- Controles (Flechas e Indicadores) ---------- */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    z-index: 2;
+    background: rgba(255, 255, 255, .85);
+    color: var(--text);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.carousel-arrow:hover {
+    background: #fff;
+}
+
+.carousel-arrow.left {
+    left: 14px;
+}
+
+.carousel-arrow.right {
+    right: 14px;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    gap: 6px;
+}
+
+.carousel-dots .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .5);
+}
+
+.carousel-dots .dot.active {
+    background: #fff;
+}
+
+
+/* =========================================================
+   TARJETAS DE PUBLICACIÓN (FEED)
+   ========================================================= */
+
+.card {
+    display: flex;
+    flex-direction: column;
+    height: auto;           /* Ajuste dinámico de altura */
+    min-width: 0;           /* Evita deformaciones horizontales por texto largo */
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: 0 6px 18px rgba(15, 40, 80, .08);
+    transform: translateY(-2px);
+}
+
+/* ---------- Área del Contenido ---------- */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;              /* Padding e interlineado optimizados */
+    padding: 8px 10px;
+}
+
+/* ---------- Imagen de la Publicación ---------- */
+.card img.card-img {
+    width: 100%;
+    height: 120px;          /* Altura reducida para diseño compacto */
+    object-fit: cover;
+    background: #f0f2f5;
+}
+
+/* Control estricto: Elimina espacios en blanco si no se adjunta imagen */
+.card-img[src=""],
+.card-img[src=" "],
+.card-img:not([src]),
+img:not([src]) {
+    display: none !important;
+    height: 0px !important;
+    min-height: 0px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* ---------- Textos de la tarjeta (Títulos y Descripciones) ---------- */
+.card-title {
+    font-size: 13px;
+    font-weight: 700;
+    height: auto;
+    color: var(--text);
+    word-break: break-word;   /* Rompe palabras largas unidas */
+    overflow-wrap: anywhere;  /* Resguardo para navegadores móviles */
+}
+
+.card-desc {
+    font-size: 11px;
+    line-height: 1.3;
+    width: 100%;
+    color: var(--muted);
+    word-break: break-word;   /* Evita desborde del contenedor */
+    overflow-wrap: anywhere;
+}
+
+/* ---------- Área del Autor e Interacciones ---------- */
+.card-author {
+    margin-top: auto;
+    padding-top: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+}
+
+.author-left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.avatar-letter {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.share-icon {
+    color: var(--blue-2);
+}
+
+.share-icon svg {
+    width: 15px;
+    height: 15px;
+}
+
+/* Botones rápidos de interacción (Likes, comentarios, etc.) */
+.interacciones-top {
+    display: flex;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.btn-mini-accion {
+    background: #f0f2f5;
+    border: none;
+    padding: 5px 8px;
+    border-radius: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.2s ease;
+}
+
+.btn-mini-accion:hover {
+    background: #e4e6eb;
+}
+
+.activo-like {
+    background: #ffebe9 !important;
+    border: 1px solid #ffccd1;
+}
+
+.activo-favorito {
+    background: #fef9e7 !important;
+    border: 1px solid #fdebd0;
+}
+
+
+/* =========================================================
+   VENTANA EMERGENTE (MODAL DE PUBLICACIÓN)
+   ========================================================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 1000;          /* Prioridad por sobre cualquier elemento */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background: #fff;
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;       /* Habilita scroll vertical si el contenido crece */
+    overflow-y: auto; 
+    padding: 24px;
+    border-radius: var(--radius, 12px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    animation: fadeInModal 0.2s ease-out;
+}
+
+/* Scroll interno sutil para el modal */
+.modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    font-size: 20px;
+    font-weight: 800;
+    color: #12203a;
+    margin: 0;
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--muted, #666);
+    line-height: 1;
+}
+
+.form-control {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    font-size: 14px;
+    border: 1px solid var(--border, #ccc);
+    border-radius: 6px;
+    outline: none;
+}
+
+
+/* =========================================================
+   RESPONSIVE & COMPORTAMIENTOS DINÁMICOS
+   ========================================================= */
+
+/* ---------- Vista Escritorio (Pantallas Grandes) ---------- */
+@media (min-width: 1000px) { 
+    /* Las tarjetas de tipo Evento y Foro se expanden a dos columnas */
+    .card.card-foro,
+    .card.card-evento {
+        grid-column: span 2; 
+    }
+}
+
+/* ---------- Vista Celular / Móvil ---------- */
+@media (max-width: 1000px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animación de entrada para el modal */
+@keyframes fadeInModal {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
